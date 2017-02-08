@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         cardView = (CardView) findViewById(R.id.cardView);
         spinner = (Spinner) findViewById(R.id.sRes);
         downloader = (Button) findViewById(R.id.download);
+        //player = (Button) findViewById(R.id.play);
         progressBar = (ProgressBar) findViewById(R.id.loader);
 
 
@@ -140,6 +141,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+//        player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String url = link;
+//            }
+//        });
+
+
         downloader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,12 +157,12 @@ public class MainActivity extends AppCompatActivity {
                     String url = link;
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                     request.setDescription("YDL");
-                    request.setTitle(title.getText().toString()+"."+extension1);
+                    request.setTitle(title.getText().toString() + "." + extension1);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                         request.allowScanningByMediaScanner();
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     }
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString()+"."+extension1);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString() + "." + extension1);
                     DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                     manager.enqueue(request);
 
@@ -160,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public boolean haveStoragePermission() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -197,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }else
+                } else
 
                 {
                     cardView.setVisibility(View.VISIBLE);
@@ -214,8 +225,8 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject tempObject = formats.getJSONObject(i);
                             Log.e("JSON ARRAY", tempObject.toString());
                             String extension = tempObject.getString("ext");
-                            if (extension == "mp4" || extension.equals("mp4") || extension=="webm"|| extension.equals("webm")) {
-                                res.add(tempObject.getString("format").substring(tempObject.getString("format").indexOf("-")+1,tempObject.getString("format").length()));
+                            if (extension == "mp4" || extension.equals("mp4") || extension == "webm" || extension.equals("webm")) {
+                                res.add(tempObject.getString("format").substring(tempObject.getString("format").indexOf("-") + 1, tempObject.getString("format").length()));
                                 links.add(tempObject.getString("url"));
                                 extensions.add(extension);
                             }

@@ -21,10 +21,15 @@
         android:id="@+id/pgBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cardView"
+        android:layout_below="@+id/container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:visibility="invisible" />
+    <ScrollView
+        android:layout_below="@+id/link"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -79,6 +84,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/download"
                 android:padding="6dp" />
+
+            <!--<Button-->
+                <!--android:id="@+id/play"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/loader"-->
+                <!--android:layout_marginLeft="4dp"-->
+                <!--android:layout_marginRight="4dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:padding="6dp"-->
+                <!--android:text="Play"-->
+                <!--android:textColor="#ffffff" />-->
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+    </ScrollView>
 </RelativeLayout>

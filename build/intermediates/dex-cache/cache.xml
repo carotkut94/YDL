@@ -3,93 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.tonyodev.fetch\fetch\1.0.0\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="6c8e4299ca16674222849ca1a8e1aa04b190743e">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.tonyodev.fetch-fetch-1.0.0_4b2158c9c4f603de08c427deef7a17cabf944329.jar" />
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.1_22d0e8cf578baa14bfe371b50da26d90aee0f45f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.github.arimorty\floatingsearchview\2.0.3\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.1_f6c349c54d4576aba90b0d05a0434034caab85eb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.bartoszlipinski\viewpropertyobjectanimator\1.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_5efbc57eca04ea830e44ff48ec819e484aa365e0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.1_04dfb16e4b4c761821b4520d8db85b732bc8599e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.1_bb438806cfdc6bf71be9fae670d656efb055e137.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.1_41954a6aba321305056fea1c4ac45346fc07f81f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.1_a47e97db6104b4edca664b620ebcb5f08acc30e2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_2e24aae7e4a238d0924f600efbec6e0e7208d319.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.1_b40f510a230872541956a36e77a99cb40c829092.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.1_0a688c40af8efc97b05ab54d88f3a371a203cba9.jar" />
+        sha1="31c1fe8583cbb7f6a9f11bb7010a747e79712335">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.github.arimorty-floatingsearchview-2.0.3_d683e49343be7e35ad953ff67dd2a6ae92fe1a70.jar" />
     </item>
     <item
         is-multidex="false"
@@ -98,34 +26,16 @@
         optimize="true"
         revision="25.0.1"
         sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.1_b070f5f5dc5758def2327efb15685516753be6e4.jar" />
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.1_b070f5f5dc5758def2327efb15685516753be6e4.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.1_19c5ab2ae9c3cb4d416d101e862220bd2e29f5a1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
         sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.1_32b447a92e7a243c1371476aef24487b58a2f842.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.1_7bd4bc1250b59d39d7d44ed7d5c631e36c449a99.jar" />
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.1_efd8ae16c5e43b6aee5f14f55e95fe30ea9c1351.jar" />
     </item>
     <item
         is-multidex="false"
@@ -134,52 +44,142 @@
         optimize="true"
         revision="25.0.1"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\glide-3.7.0_acd3266cb71305cb8560defd695861aac9334ca3.jar" />
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\glide-3.7.0_acd3266cb71305cb8560defd695861aac9334ca3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.1_7aec0fdf98880e89587c8e210bac57aa2d6a4b4a.jar" />
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.1_4f988f89c185016ecdfddcc36c317e3c19ad4a02.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
         sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.1_c1823534f4c9e96813c8b82d6b5594ea67aec533.jar" />
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.1_f861243ea1a3d05f18f09623eaae03101c52e432.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.github.arimorty\floatingsearchview\2.0.3\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="31c1fe8583cbb7f6a9f11bb7010a747e79712335">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.github.arimorty-floatingsearchview-2.0.3_dd14e4ed7192283ea46e9ad69b3deee1fd74586f.jar" />
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.1_268846890780478f4fae4a12c6e2f4dbf6bd392c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.1\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="a8ae156c2726ac9c56daaf4b49452ec2cdb7bba9">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.1.1_59f476a8c7f5888f8d15fa6662902319d64b9f47.jar" />
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.1_f9ac7b7fbdef6717b39392d974e2d3345ae43f2e.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\exploded-aar\com.writingminds\FFmpegAndroid\0.3.2\jars\classes.jar"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.tonyodev.fetch\fetch\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6c8e4299ca16674222849ca1a8e1aa04b190743e">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.tonyodev.fetch-fetch-1.0.0_db1ac72cb58ab22ab0bac588df0f08a0196d464e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.1_5cef3d3f2c48797145d8d127daac15e6b6a57431.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.1_de4daffcc7aed88fdf15a7d8869f8eba7738a8d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.1_3c01aeba904d2a263a084255731f770eba53e01c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_3083d8b57da61115dbce432ca17168b8b92168f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.writingminds\FFmpegAndroid\0.3.2\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
         sha1="722acae466ccefebedf8a6631384e83bf3139f7c">
-        <dex dex="C:\Users\rajora_sd\Desktop\YDL\app\build\intermediates\pre-dexed\debug\com.writingminds-FFmpegAndroid-0.3.2_c0c7cd77ecb7162df031f364bad9e32c146c90d1.jar" />
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.writingminds-FFmpegAndroid-0.3.2_8d36d32514d64a63ac0c94934c170b67035b9b91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.1_deab76a1f125f990eed1bbf029d3643439bd2548.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.bartoszlipinski\viewpropertyobjectanimator\1.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_1010b33bab785edd5cefdcfddd70b36dceac3cfa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a8ae156c2726ac9c56daaf4b49452ec2cdb7bba9">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.1.1_9a482eaad72f56892b034a6345072d3a3cceb5b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.1_2beaf11ac6c1c8308c3674ccb50fac187aa11d1c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.1_a193201ff8969f27ad30d0942321605b3382c513.jar" />
     </item>
 
 </items>
