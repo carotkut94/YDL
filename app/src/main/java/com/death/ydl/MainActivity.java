@@ -29,6 +29,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.aspsine.multithreaddownload.CallBack;
+import com.aspsine.multithreaddownload.DownloadException;
+import com.aspsine.multithreaddownload.DownloadRequest;
 import com.bumptech.glide.Glide;
 import com.death.ydl.utils.Utility;
 import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
@@ -39,6 +42,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,40 +79,41 @@ public class MainActivity extends AppCompatActivity {
         //player = (Button) findViewById(R.id.play);
         progressBar = (ProgressBar) findViewById(R.id.loader);
 
-
-        FFmpeg ffmpeg = FFmpeg.getInstance(this);
-        try {
-            ffmpeg.execute(new String[]{"-version"}, new ExecuteBinaryResponseHandler() {
-
-                @Override
-                public void onStart() {
-                    Toast.makeText(MainActivity.this, "Started", Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onProgress(String message) {
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onFailure(String message) {
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onSuccess(String message) {
-
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onFinish() {
-                }
-            });
-        } catch (FFmpegCommandAlreadyRunningException e) {
-
-        }
+        progressBar.setMax(100);
+        progressBar.setProgress(0);
+//        FFmpeg ffmpeg = FFmpeg.getInstance(this);
+//        try {
+//            ffmpeg.execute(new String[]{"-i", "video.mp4"," -i"," audio.wav", "-c" ,"copy","output.mkv"}, new ExecuteBinaryResponseHandler() {
+//
+//                @Override
+//                public void onStart() {
+//                    Toast.makeText(MainActivity.this, "Started", Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onProgress(String message) {
+//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onFailure(String message) {
+//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onSuccess(String message) {
+//
+//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onFinish() {
+//                }
+//            });
+//        } catch (FFmpegCommandAlreadyRunningException e) {
+//
+//        }
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -155,17 +160,64 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (haveStoragePermission()) {
                     String url = link;
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-                    request.setDescription("YDL");
-                    request.setTitle(title.getText().toString() + "." + extension1);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                        request.allowScanningByMediaScanner();
-                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    }
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString() + "." + extension1);
-                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-                    manager.enqueue(request);
+//                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+//                    request.setDescription("YDL");
+//                    request.setTitle(title.getText().toString() + "." + extension1);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+//                        request.allowScanningByMediaScanner();
+//                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+//                    }
+//                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString() + "." + extension1);
+//                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+//                    manager.enqueue(request);
+                    final DownloadRequest request = new DownloadRequest.Builder()
+                            .setName(title.getText().toString() + "." + extension1)
+                            .setUri(link)
+                            .setFolder(Environment.getExternalStorageDirectory())
+                            .build();
+                    com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request, link, new CallBack() {
+                        @Override
+                        public void onStarted() {
 
+                        }
+
+                        @Override
+                        public void onConnecting() {
+
+                        }
+
+                        @Override
+                        public void onConnected(long l, boolean b) {
+
+                        }
+
+                        @Override
+                        public void onProgress(long l, long l1, int i) {
+                            Log.e("PROGRESS", i+"    "+l1+"      "+l);
+
+                            progressBar.setProgress(i);
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                            Log.e("PROGRESS","Completed");
+                        }
+
+                        @Override
+                        public void onDownloadPaused() {
+
+                        }
+
+                        @Override
+                        public void onDownloadCanceled() {
+
+                        }
+
+                        @Override
+                        public void onFailed(DownloadException e) {
+                            Log.e("PROGRESS",e.getErrorMessage());
+                        }
+                    });
                 }
             }
         });

@@ -3,21 +3,21 @@
 
     <item
         is-multidex="false"
+        jar="D:\YDL\app\build\intermediates\exploded-aar\com.github.Aspsine\MultiThreadDownload\920fd6f670\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f69ece972addc40cbb73527385df372ed2c122da">
+        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.github.Aspsine-MultiThreadDownload-920fd6f670_45f7297af59a27ce76035579add431251bc4486d.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\YDL\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.1"
         sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
         <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.1_22d0e8cf578baa14bfe371b50da26d90aee0f45f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\YDL\app\build\intermediates\exploded-aar\com.github.arimorty\floatingsearchview\2.0.3\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="31c1fe8583cbb7f6a9f11bb7010a747e79712335">
-        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.github.arimorty-floatingsearchview-2.0.3_d683e49343be7e35ad953ff67dd2a6ae92fe1a70.jar" />
     </item>
     <item
         is-multidex="false"
@@ -144,15 +144,6 @@
         revision="25.0.1"
         sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
         <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.1_deab76a1f125f990eed1bbf029d3643439bd2548.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\YDL\app\build\intermediates\exploded-aar\com.bartoszlipinski\viewpropertyobjectanimator\1.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
-        <dex dex="D:\YDL\app\build\intermediates\pre-dexed\debug\com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_1010b33bab785edd5cefdcfddd70b36dceac3cfa.jar" />
     </item>
     <item
         is-multidex="false"
