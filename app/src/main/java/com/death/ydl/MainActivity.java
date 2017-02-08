@@ -30,6 +30,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
+import com.death.ydl.utils.Utility;
 import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
@@ -56,37 +57,6 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     String extension1;
     String link = "";
-
-    public static String formatString(String text) {
-
-        StringBuilder json = new StringBuilder();
-        String indentString = "";
-
-        for (int i = 0; i < text.length(); i++) {
-            char letter = text.charAt(i);
-            switch (letter) {
-                case '{':
-                case '[':
-                    json.append("\n" + indentString + letter + "\n");
-                    indentString = indentString + "\t";
-                    json.append(indentString);
-                    break;
-                case '}':
-                case ']':
-                    indentString = indentString.replaceFirst("\t", "");
-                    json.append("\n" + indentString + letter);
-                    break;
-                case ',':
-                    json.append(letter + "\n" + indentString);
-                    break;
-
-                default:
-                    json.append(letter);
-                    break;
-            }
-        }
-        return json.toString();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,16 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 links.clear();
                 extensions.clear();
                 res.clear();
-                Uri.Builder builder = new Uri.Builder();
-                builder.scheme("https")
-                        .authority("youtube0973.herokuapp.com")
-                        .appendPath("api")
-                        .appendPath("info")
-                        .appendQueryParameter("url", query)
-                        .appendQueryParameter("flatten", "False");
-                String myUrl = builder.build().toString();
-                Log.e("LINK", myUrl);
-                makeJsonObjectRequest(myUrl);
+                makeJsonObjectRequest(Utility.getUrl(query));
                 return false;
             }
 
@@ -179,8 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
         downloader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,8 +159,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     public boolean haveStoragePermission() {
@@ -227,8 +184,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeJsonObjectRequest(String urlJsonObj) {
-
-
         progressBar1.setVisibility(View.VISIBLE);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 urlJsonObj, null, new Response.Listener<JSONObject>() {
@@ -289,7 +244,6 @@ public class MainActivity extends AppCompatActivity {
                 progressBar1.setVisibility(View.INVISIBLE);
             }
         });
-
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
