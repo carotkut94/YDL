@@ -3,6 +3,7 @@ package com.death.ydl;
 import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -115,6 +116,16 @@ public class MainActivity extends AppCompatActivity {
 //
 //        }
 
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intent); // Handle text being sent
+            }
+        }
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -173,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     final DownloadRequest request = new DownloadRequest.Builder()
                             .setName(title.getText().toString() + "." + extension1)
                             .setUri(link)
-                            .setFolder(Environment.getExternalStorageDirectory())
+                            .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
                             .build();
                     com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request, link, new CallBack() {
                         @Override
@@ -223,6 +234,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            links.clear();
+            extensions.clear();
+            res.clear();
+            makeJsonObjectRequest(Utility.getUrl(sharedText));
+        }
+    }
 
     public boolean haveStoragePermission() {
         if (Build.VERSION.SDK_INT >= 23) {
