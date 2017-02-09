@@ -191,11 +191,12 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onCompleted() {
                             Log.e("PROGRESS", "Completed");
+                            dStatus.setText("Video downloaded");
                             if (isMusic) {
                                 String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
                                 Log.e("PATH", dirDownloads);
                                 dStatus.setText("Downloaded....");
-                                String[] command = {"-i",dirDownloads+title.getText().toString() + "." + extension1,"-vn", "-ab", "128k", "-ar", "44100", "-y",dirDownloads+title.getText().toString()+"."+extension1+".mp3"};
+                                String[] command = {"-i", dirDownloads + title.getText().toString() + "." + extension1, "-vn", "-ab", "128k", "-ar", "44100", "-y", dirDownloads + title.getText().toString() + "." + extension1 + ".mp3"};
                                 handleMedia(command);
                             }
                         }
@@ -252,9 +253,6 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-    // compile 'com.github.adrielcafe:AndroidAudioConverter:0.0.8'
-
 
     private void makeJsonObjectRequest(String urlJsonObj) {
         progressBar1.setVisibility(View.VISIBLE);
@@ -328,14 +326,14 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onStart() {
-                    Toast.makeText(MainActivity.this, "Started", Toast.LENGTH_LONG).show();
+
                     Log.e("onStart", "Started");
                     dStatus.setText("Conversion started....");
                 }
 
                 @Override
                 public void onProgress(String message) {
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+
                     Log.e("onProgress", message);
                     dStatus.setText(message);
                 }
@@ -349,15 +347,14 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(String message) {
-
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
                     Log.e("onSuccess", message);
                     dStatus.setText("Everything is complete");
-
                 }
 
                 @Override
                 public void onFinish() {
+                    File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), title.getText().toString() + "." + extension1);
+                    f.delete();
                     Toast.makeText(MainActivity.this, "Finished", Toast.LENGTH_LONG).show();
                     dStatus.setText("Everything is complete");
                 }
