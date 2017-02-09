@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     String extension1, resolutionString;
     String link = "";
-
+    String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -188,11 +188,11 @@ public class MainActivity extends AppCompatActivity {
                                 Log.e("PROGRESS", "Completed");
                                 dStatus.setText("Video downloaded");
                                 if (isMusic) {
-                                    String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
+
                                     Log.e("PATH", dirDownloads);
                                     dStatus.setText("Downloaded....");
                                     String[] command = {"-i", dirDownloads + title.getText().toString() + "." + extension1, "-vn", "-ab", "128k", "-ar", "44100", "-y", dirDownloads + title.getText().toString() + "." + extension1 + ".mp3"};
-                                    handleMedia(command);
+                                    handleMedia(command, false);
                                 }
 
                             }
@@ -282,6 +282,9 @@ public class MainActivity extends AppCompatActivity {
                                     public void onCompleted() {
                                         Log.e("PROGRESS", "Completed");
                                         dStatus.setText("DASH AUDIO downloaded");
+                                        //ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv
+                                        String[] command = {"-i",dirDownloads + title.getText().toString() + "." + extension1, "-i",dirDownloads+title.getText().toString() + "." + extensions.get(0),"-c", "copy", dirDownloads + title.getText().toString() + ".mp4"};
+                                        handleMedia(command, true);
                                     }
 
                                     @Override
@@ -421,9 +424,10 @@ public class MainActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
-    public void handleMedia(String[] cmd) {
+    public void handleMedia(String[] cmd, Boolean shallIMerge) {
         dStatus.setText("Conversion will begin soon....");
         FFmpeg ffmpeg = FFmpeg.getInstance(this);
+        if(!shallIMerge){
         try {
             ffmpeg.execute(cmd, new ExecuteBinaryResponseHandler() {
 
@@ -463,6 +467,47 @@ public class MainActivity extends AppCompatActivity {
             });
         } catch (FFmpegCommandAlreadyRunningException e) {
 
+        }}else{
+            try {
+                ffmpeg.execute(cmd, new ExecuteBinaryResponseHandler() {
+
+                    @Override
+                    public void onStart() {
+
+                        Log.e("onStart", "Started");
+                        dStatus.setText("Merging audio video....");
+                    }
+
+                    @Override
+                    public void onProgress(String message) {
+
+                        Log.e("onProgress", message);
+                        dStatus.setText(message);
+                    }
+
+                    @Override
+                    public void onFailure(String message) {
+                        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        Log.e("onFailure", message);
+                        dStatus.setText("Merge failed");
+                    }
+
+                    @Override
+                    public void onSuccess(String message) {
+                        Log.e("onSuccess", message);
+                        dStatus.setText("Merger is complete");
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), title.getText().toString() + "." + extension1).delete();
+                        Toast.makeText(MainActivity.this, "Finished", Toast.LENGTH_LONG).show();
+                        dStatus.setText("Everything is complete");
+                    }
+                });
+            } catch (FFmpegCommandAlreadyRunningException e) {
+
+            }
         }
     }
 }

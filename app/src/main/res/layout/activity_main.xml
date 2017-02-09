@@ -92,6 +92,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/loader"
                 android:text="status"
+                android:padding="6dp"
                 android:textSize="18sp"
                 android:textColor="#fd263c9c"
                 />
