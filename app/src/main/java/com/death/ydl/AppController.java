@@ -13,6 +13,7 @@ import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.LoadBinaryResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegNotSupportedException;
 
+
 public class AppController extends Application {
 
     public static final String TAG = AppController.class
@@ -51,6 +52,7 @@ public class AppController extends Application {
         } catch (FFmpegNotSupportedException e) {
 
         }
+
     }
 
     public static synchronized AppController getInstance() {

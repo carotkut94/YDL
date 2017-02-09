@@ -84,6 +84,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/download"
                 android:padding="6dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/status"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/loader"
+                android:text="status"
+                android:textSize="18sp"
+                android:textColor="#fd263c9c"
+                />
+
 
             <!--<Button-->
                 <!--android:id="@+id/play"-->

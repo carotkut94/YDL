@@ -1,11 +1,8 @@
 package com.death.ydl;
 
 import android.Manifest;
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -49,18 +46,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Boolean isMusic;
     Button downloader;
     SearchView editText;
     ProgressBar progressBar1, progressBar;
     ImageView image;
-    TextView title;
+    TextView title, dStatus;
     CardView cardView;
     List<String> res;
     List<String> links;
     List<String> extensions;
     Spinner spinner;
-    String extension1;
+    String extension1, resolutionString;
     String link = "";
 
     @Override
@@ -74,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar1 = (ProgressBar) findViewById(R.id.pgBar);
         image = (ImageView) findViewById(R.id.imageThumbnail);
         title = (TextView) findViewById(R.id.title);
+        dStatus = (TextView) findViewById(R.id.status);
         cardView = (CardView) findViewById(R.id.cardView);
         spinner = (Spinner) findViewById(R.id.sRes);
         downloader = (Button) findViewById(R.id.download);
@@ -82,39 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar.setMax(100);
         progressBar.setProgress(0);
-//        FFmpeg ffmpeg = FFmpeg.getInstance(this);
-//        try {
-//            ffmpeg.execute(new String[]{"-i", "video.mp4"," -i"," audio.wav", "-c" ,"copy","output.mkv"}, new ExecuteBinaryResponseHandler() {
-//
-//                @Override
-//                public void onStart() {
-//                    Toast.makeText(MainActivity.this, "Started", Toast.LENGTH_LONG).show();
-//                }
-//
-//                @Override
-//                public void onProgress(String message) {
-//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-//                }
-//
-//                @Override
-//                public void onFailure(String message) {
-//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-//                }
-//
-//                @Override
-//                public void onSuccess(String message) {
-//
-//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-//
-//                }
-//
-//                @Override
-//                public void onFinish() {
-//                }
-//            });
-//        } catch (FFmpegCommandAlreadyRunningException e) {
-//
-//        }
+
 
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -133,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Links+============+", links.get(i));
                 link = links.get(i);
                 extension1 = extensions.get(i);
+                resolutionString = res.get(i);
             }
 
             @Override
@@ -181,11 +148,21 @@ public class MainActivity extends AppCompatActivity {
 //                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString() + "." + extension1);
 //                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 //                    manager.enqueue(request);
+
+
                     final DownloadRequest request = new DownloadRequest.Builder()
                             .setName(title.getText().toString() + "." + extension1)
                             .setUri(link)
                             .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
                             .build();
+
+                    if (extension1.equals("webm") && resolutionString.contains("audio")) {
+                        isMusic = true;
+                        Log.e("Extension for file", extension1);
+                    } else {
+                        isMusic = false;
+                        Log.e("ON FALSE for file", extension1);
+                    }
                     com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request, link, new CallBack() {
                         @Override
                         public void onStarted() {
@@ -194,24 +171,33 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onConnecting() {
-
+                            progressBar.setIndeterminate(true);
+                            dStatus.setText("Connecting....");
                         }
 
                         @Override
                         public void onConnected(long l, boolean b) {
-
+                            progressBar.setIndeterminate(false);
+                            dStatus.setText("Connected!");
                         }
 
                         @Override
                         public void onProgress(long l, long l1, int i) {
-                            Log.e("PROGRESS", i+"    "+l1+"      "+l);
-
+                            Log.e("PROGRESS", i + "    " + l1 + "      " + l);
                             progressBar.setProgress(i);
+                            dStatus.setText("Downloading....");
                         }
 
                         @Override
                         public void onCompleted() {
-                            Log.e("PROGRESS","Completed");
+                            Log.e("PROGRESS", "Completed");
+                            if (isMusic) {
+                                String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
+                                Log.e("PATH", dirDownloads);
+                                dStatus.setText("Downloaded....");
+                                String[] command = {"-i",dirDownloads+title.getText().toString() + "." + extension1,"-vn", "-ab", "128k", "-ar", "44100", "-y",dirDownloads+title.getText().toString()+"."+extension1+".mp3"};
+                                handleMedia(command);
+                            }
                         }
 
                         @Override
@@ -226,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailed(DownloadException e) {
-                            Log.e("PROGRESS",e.getErrorMessage());
+                            Log.e("PROGRESS", e.getErrorMessage());
                         }
                     });
                 }
@@ -267,6 +253,9 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    // compile 'com.github.adrielcafe:AndroidAudioConverter:0.0.8'
+
+
     private void makeJsonObjectRequest(String urlJsonObj) {
         progressBar1.setVisibility(View.VISIBLE);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -285,18 +274,18 @@ public class MainActivity extends AppCompatActivity {
 
                 {
                     cardView.setVisibility(View.VISIBLE);
-                    Log.e("TAG", response.toString());
+                    //Log.e("TAG", response.toString());
                     try {
                         JSONObject info = response.getJSONObject("info");
                         String titles = info.getString("title");
-                        Log.e("Title", titles);
-                        Log.e("Thumbnail", info.getString("thumbnail"));
+                        //Log.e("Title", titles);
+                        //Log.e("Thumbnail", info.getString("thumbnail"));
                         Glide.with(MainActivity.this).load(info.getString("thumbnail")).into(image);
                         title.setText(titles);
                         JSONArray formats = info.getJSONArray("formats");
                         for (int i = 0; i < formats.length(); i++) {
                             JSONObject tempObject = formats.getJSONObject(i);
-                            Log.e("JSON ARRAY", tempObject.toString());
+                            //Log.e("JSON ARRAY", tempObject.toString());
                             String extension = tempObject.getString("ext");
                             if (extension == "mp4" || extension.equals("mp4") || extension == "webm" || extension.equals("webm")) {
                                 res.add(tempObject.getString("format").substring(tempObject.getString("format").indexOf("-") + 1, tempObject.getString("format").length()));
@@ -331,4 +320,50 @@ public class MainActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
+    public void handleMedia(String[] cmd) {
+        dStatus.setText("Conversion will begin soon....");
+        FFmpeg ffmpeg = FFmpeg.getInstance(this);
+        try {
+            ffmpeg.execute(cmd, new ExecuteBinaryResponseHandler() {
+
+                @Override
+                public void onStart() {
+                    Toast.makeText(MainActivity.this, "Started", Toast.LENGTH_LONG).show();
+                    Log.e("onStart", "Started");
+                    dStatus.setText("Conversion started....");
+                }
+
+                @Override
+                public void onProgress(String message) {
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                    Log.e("onProgress", message);
+                    dStatus.setText(message);
+                }
+
+                @Override
+                public void onFailure(String message) {
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                    Log.e("onFailure", message);
+                    dStatus.setText("Conversion failed");
+                }
+
+                @Override
+                public void onSuccess(String message) {
+
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                    Log.e("onSuccess", message);
+                    dStatus.setText("Everything is complete");
+
+                }
+
+                @Override
+                public void onFinish() {
+                    Toast.makeText(MainActivity.this, "Finished", Toast.LENGTH_LONG).show();
+                    dStatus.setText("Everything is complete");
+                }
+            });
+        } catch (FFmpegCommandAlreadyRunningException e) {
+
+        }
+    }
 }
