@@ -13,4 +13,4 @@ Conversion on x86_64 processor (Intel x86_x64) failes because of some text reall
 2. UI optimizations
 3. Creation of Settings Activity for setting Default Directory and number of threads to download the file
 4. Creation of Custom download manager, instead of using third party lib
-~5. Support for Intel x86_64 processor for the purpose of converion and merger of file (No-Priority)
+-5. Support for Intel x86_64 processor for the purpose of converion and merger of file (No-Priority)-
