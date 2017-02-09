@@ -1,0 +1,105 @@
+ else {
+                    final DownloadRequest request2 = new DownloadRequest.Builder()
+                            .setName(title.getText().toString() + "." + extension1)
+                            .setUri(link)
+                            .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
+                            .build();
+                    com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request2, link, new CallBack() {
+                        @Override
+                        public void onStarted() {
+
+                        }
+
+                        @Override
+                        public void onConnecting() {
+                            progressBar.setIndeterminate(true);
+                            dStatus.setText("Connecting....");
+                        }
+
+                        @Override
+                        public void onConnected(long l, boolean b) {
+                            progressBar.setIndeterminate(false);
+                            dStatus.setText("Connected!");
+                        }
+
+                        @Override
+                        public void onProgress(long l, long l1, int i) {
+                            Log.e("PROGRESS", i + "    " + l1 + "      " + l);
+                            progressBar.setProgress(i);
+                            dStatus.setText("Downloading DASH VIDEO");
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                            Log.e("PROGRESS", "Completed");
+                            dStatus.setText("DASH Video downloaded");
+                            final DownloadRequest request3 = new DownloadRequest.Builder()
+                                    .setName(title.getText().toString() + "." + extensions.get(0))
+                                    .setUri(links.get(0))
+                                    .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
+                                    .build();
+                            com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request3, link, new CallBack() {
+                                @Override
+                                public void onStarted() {
+
+                                }
+
+                                @Override
+                                public void onConnecting() {
+                                    progressBar.setIndeterminate(true);
+                                    dStatus.setText("Downlaoding DASH audio");
+                                }
+
+                                @Override
+                                public void onConnected(long l, boolean b) {
+                                    progressBar.setIndeterminate(false);
+                                    dStatus.setText("Connected!");
+                                }
+
+                                @Override
+                                public void onProgress(long l, long l1, int i) {
+                                    Log.e("PROGRESS", i + "    " + l1 + "      " + l);
+                                    progressBar.setProgress(i);
+                                    dStatus.setText("Downloading DASH AUDIO....");
+                                }
+
+                                @Override
+                                public void onCompleted() {
+                                    Log.e("PROGRESS", "Completed");
+                                    dStatus.setText("DASH AUDIO downloaded");
+                                }
+
+                                @Override
+                                public void onDownloadPaused() {
+
+                                }
+
+                                @Override
+                                public void onDownloadCanceled() {
+
+                                }
+
+                                @Override
+                                public void onFailed(DownloadException e) {
+                                    Log.e("PROGRESS", e.getErrorMessage());
+                                }
+                            });
+
+                        }
+
+                        @Override
+                        public void onDownloadPaused() {
+
+                        }
+
+                        @Override
+                        public void onDownloadCanceled() {
+
+                        }
+
+                        @Override
+                        public void onFailed(DownloadException e) {
+                            Log.e("PROGRESS", e.getErrorMessage());
+                        }
+                    });
+                }
