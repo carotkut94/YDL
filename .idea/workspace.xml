@@ -10,15 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ec3302b-2fbe-4f09-af3f-b00a92b9b19f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/death/ydl/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/death/ydl/MainActivity.java" />
     </list>
     <ignored path="YDL.iws" />
@@ -55,10 +46,9 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/death/ydl/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="249" column="5" selection-start-line="249" selection-start-column="5" selection-end-line="249" selection-end-column="5" />
+            <state relative-caret-position="367">
+              <caret line="355" column="164" selection-start-line="355" selection-start-column="164" selection-end-line="355" selection-end-column="164" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#handleSendText#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#haveStoragePermission#0;class#MainActivity#0" expanded="false" />
@@ -68,7 +58,6 @@
                 <element signature="e#12878#12879#0" expanded="true" />
                 <element signature="e#12881#13275#0" expanded="true" />
                 <element signature="e#13274#13275#0" expanded="true" />
-                <element signature="method#handleMedia#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2460,7 +2449,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#handleSendText#0;class#MainActivity#0" expanded="false" />
             <element signature="method#haveStoragePermission#0;class#MainActivity#0" expanded="false" />
@@ -2470,7 +2458,6 @@
             <element signature="e#12878#12879#0" expanded="true" />
             <element signature="e#12881#13275#0" expanded="true" />
             <element signature="e#13274#13275#0" expanded="true" />
-            <element signature="method#handleMedia#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2558,10 +2545,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/death/ydl/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="249" column="5" selection-start-line="249" selection-start-column="5" selection-end-line="249" selection-end-column="5" />
+        <state relative-caret-position="367">
+          <caret line="355" column="164" selection-start-line="355" selection-start-column="164" selection-end-line="355" selection-end-column="164" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#handleSendText#0;class#MainActivity#0" expanded="false" />
             <element signature="method#haveStoragePermission#0;class#MainActivity#0" expanded="false" />
@@ -2571,7 +2557,6 @@
             <element signature="e#12878#12879#0" expanded="true" />
             <element signature="e#12881#13275#0" expanded="true" />
             <element signature="e#13274#13275#0" expanded="true" />
-            <element signature="method#handleMedia#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

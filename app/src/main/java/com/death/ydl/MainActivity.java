@@ -353,8 +353,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFinish() {
-                    File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), title.getText().toString() + "." + extension1);
-                    f.delete();
+                    new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), title.getText().toString() + "." + extension1).delete();
                     Toast.makeText(MainActivity.this, "Finished", Toast.LENGTH_LONG).show();
                     dStatus.setText("Everything is complete");
                 }
