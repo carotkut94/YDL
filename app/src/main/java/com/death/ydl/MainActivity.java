@@ -46,7 +46,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Boolean isMusic;
+    Boolean isMusic, isDashVideo;
     Button downloader;
     SearchView editText;
     ProgressBar progressBar1, progressBar;
@@ -100,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
                 link = links.get(i);
                 extension1 = extensions.get(i);
                 resolutionString = res.get(i);
+                Log.e("RES", resolutionString);
+                if (resolutionString.contains("(DASH video)")) {
+                    Log.e("DASH", "DASH VIDEO DETECTED");
+                    isDashVideo = true;
+                } else {
+                    isDashVideo = false;
+                }
             }
 
             @Override
@@ -138,84 +145,179 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (haveStoragePermission()) {
                     String url = link;
-//                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-//                    request.setDescription("YDL");
-//                    request.setTitle(title.getText().toString() + "." + extension1);
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-//                        request.allowScanningByMediaScanner();
-//                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-//                    }
-//                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title.getText().toString() + "." + extension1);
-//                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-//                    manager.enqueue(request);
-
-
-                    final DownloadRequest request = new DownloadRequest.Builder()
-                            .setName(title.getText().toString() + "." + extension1)
-                            .setUri(link)
-                            .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
-                            .build();
-
-                    if (extension1.equals("webm") && resolutionString.contains("audio")) {
-                        isMusic = true;
-                        Log.e("Extension for file", extension1);
-                    } else {
-                        isMusic = false;
-                        Log.e("ON FALSE for file", extension1);
-                    }
-                    com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request, link, new CallBack() {
-                        @Override
-                        public void onStarted() {
-
+                    if (!isDashVideo) {
+                        final DownloadRequest request1 = new DownloadRequest.Builder()
+                                .setName(title.getText().toString() + "." + extension1)
+                                .setUri(link)
+                                .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
+                                .build();
+                        if (extension1.equals("m4a") && resolutionString.contains("audio")) {
+                            isMusic = true;
+                            Log.e("Extension for file", extension1);
+                        } else {
+                            isMusic = false;
+                            Log.e("ON FALSE for file", extension1);
                         }
+                        com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request1, link, new CallBack() {
+                            @Override
+                            public void onStarted() {
 
-                        @Override
-                        public void onConnecting() {
-                            progressBar.setIndeterminate(true);
-                            dStatus.setText("Connecting....");
-                        }
-
-                        @Override
-                        public void onConnected(long l, boolean b) {
-                            progressBar.setIndeterminate(false);
-                            dStatus.setText("Connected!");
-                        }
-
-                        @Override
-                        public void onProgress(long l, long l1, int i) {
-                            Log.e("PROGRESS", i + "    " + l1 + "      " + l);
-                            progressBar.setProgress(i);
-                            dStatus.setText("Downloading....");
-                        }
-
-                        @Override
-                        public void onCompleted() {
-                            Log.e("PROGRESS", "Completed");
-                            dStatus.setText("Video downloaded");
-                            if (isMusic) {
-                                String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
-                                Log.e("PATH", dirDownloads);
-                                dStatus.setText("Downloaded....");
-                                String[] command = {"-i", dirDownloads + title.getText().toString() + "." + extension1, "-vn", "-ab", "128k", "-ar", "44100", "-y", dirDownloads + title.getText().toString() + "." + extension1 + ".mp3"};
-                                handleMedia(command);
                             }
-                        }
 
-                        @Override
-                        public void onDownloadPaused() {
+                            @Override
+                            public void onConnecting() {
+                                progressBar.setIndeterminate(true);
+                                dStatus.setText("Connecting....");
+                            }
 
-                        }
+                            @Override
+                            public void onConnected(long l, boolean b) {
+                                progressBar.setIndeterminate(false);
+                                dStatus.setText("Connected!");
+                            }
 
-                        @Override
-                        public void onDownloadCanceled() {
+                            @Override
+                            public void onProgress(long l, long l1, int i) {
+                                Log.e("PROGRESS", i + "    " + l1 + "      " + l);
+                                progressBar.setProgress(i);
+                                dStatus.setText("Downloading....");
+                            }
 
-                        }
+                            @Override
+                            public void onCompleted() {
+                                Log.e("PROGRESS", "Completed");
+                                dStatus.setText("Video downloaded");
+                                if (isMusic) {
+                                    String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
+                                    Log.e("PATH", dirDownloads);
+                                    dStatus.setText("Downloaded....");
+                                    String[] command = {"-i", dirDownloads + title.getText().toString() + "." + extension1, "-vn", "-ab", "128k", "-ar", "44100", "-y", dirDownloads + title.getText().toString() + "." + extension1 + ".mp3"};
+                                    handleMedia(command);
+                                }
 
-                        @Override
-                        public void onFailed(DownloadException e) {
-                            Log.e("PROGRESS", e.getErrorMessage());
-                        }
-                    });
+                            }
+
+                            @Override
+                            public void onDownloadPaused() {
+
+                            }
+
+                            @Override
+                            public void onDownloadCanceled() {
+
+                            }
+
+                            @Override
+                            public void onFailed(DownloadException e) {
+                                Log.e("PROGRESS", e.getErrorMessage());
+                            }
+                        });
+                    }
+                    else {
+                        final DownloadRequest request2 = new DownloadRequest.Builder()
+                                .setName(title.getText().toString() + "." + extension1)
+                                .setUri(link)
+                                .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
+                                .build();
+                        com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request2, link, new CallBack() {
+                            @Override
+                            public void onStarted() {
+
+                            }
+
+                            @Override
+                            public void onConnecting() {
+                                progressBar.setIndeterminate(true);
+                                dStatus.setText("Connecting....");
+                            }
+
+                            @Override
+                            public void onConnected(long l, boolean b) {
+                                progressBar.setIndeterminate(false);
+                                dStatus.setText("Connected!");
+                            }
+
+                            @Override
+                            public void onProgress(long l, long l1, int i) {
+                                Log.e("PROGRESS", i + "    " + l1 + "      " + l);
+                                progressBar.setProgress(i);
+                                dStatus.setText("Downloading DASH VIDEO");
+                            }
+
+                            @Override
+                            public void onCompleted() {
+                                Log.e("PROGRESS", "Completed");
+                                dStatus.setText("DASH Video downloaded");
+                                final DownloadRequest request3 = new DownloadRequest.Builder()
+                                        .setName(title.getText().toString() + "." + extensions.get(0))
+                                        .setUri(links.get(0))
+                                        .setFolder(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))
+                                        .build();
+                                com.aspsine.multithreaddownload.DownloadManager.getInstance().download(request3, links.get(0), new CallBack() {
+                                    @Override
+                                    public void onStarted() {
+
+                                    }
+
+                                    @Override
+                                    public void onConnecting() {
+                                        progressBar.setIndeterminate(true);
+                                        dStatus.setText("Downloading DASH audio");
+                                    }
+
+                                    @Override
+                                    public void onConnected(long l, boolean b) {
+                                        progressBar.setIndeterminate(false);
+                                        dStatus.setText("Connected!");
+                                    }
+
+                                    @Override
+                                    public void onProgress(long l, long l1, int i) {
+                                        Log.e("PROGRESS", i + "    " + l1 + "      " + l);
+                                        progressBar.setProgress(i);
+                                        dStatus.setText("Downloading DASH AUDIO....");
+                                    }
+
+                                    @Override
+                                    public void onCompleted() {
+                                        Log.e("PROGRESS", "Completed");
+                                        dStatus.setText("DASH AUDIO downloaded");
+                                    }
+
+                                    @Override
+                                    public void onDownloadPaused() {
+
+                                    }
+
+                                    @Override
+                                    public void onDownloadCanceled() {
+
+                                    }
+
+                                    @Override
+                                    public void onFailed(DownloadException e) {
+                                        Log.e("PROGRESS", e.getErrorMessage());
+                                    }
+                                });
+
+                            }
+
+                            @Override
+                            public void onDownloadPaused() {
+
+                            }
+
+                            @Override
+                            public void onDownloadCanceled() {
+
+                            }
+
+                            @Override
+                            public void onFailed(DownloadException e) {
+                                Log.e("PROGRESS", e.getErrorMessage());
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -285,13 +387,14 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject tempObject = formats.getJSONObject(i);
                             //Log.e("JSON ARRAY", tempObject.toString());
                             String extension = tempObject.getString("ext");
-                            if (extension == "mp4" || extension.equals("mp4") || extension == "webm" || extension.equals("webm")) {
+                            if (extension.equals("m4a") || extension.equals("mp4")) {
+
+                                Log.e("ARRAY", tempObject.toString());
                                 res.add(tempObject.getString("format").substring(tempObject.getString("format").indexOf("-") + 1, tempObject.getString("format").length()));
                                 links.add(tempObject.getString("url"));
                                 extensions.add(extension);
                             }
                         }
-
                         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, res);
                         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner.setAdapter(dataAdapter);
