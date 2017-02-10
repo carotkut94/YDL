@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> extensions;
     Spinner spinner;
     String extension1, resolutionString;
-    String link = "";
+    String link;
     String dirDownloads = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     isDashVideo = false;
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -131,13 +130,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-//        player.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String url = link;
-//            }
-//        });
 
 
         downloader.setOnClickListener(new View.OnClickListener() {
@@ -282,8 +274,9 @@ public class MainActivity extends AppCompatActivity {
                                     public void onCompleted() {
                                         Log.e("PROGRESS", "Completed");
                                         dStatus.setText("DASH AUDIO downloaded");
+                                        // ffmpeg.exe -i AudioT.mp4 -i VideoT.mp4 -acodec copy -vcodec copy muxed.mp4
                                         //ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv
-                                        String[] command = {"-i",dirDownloads + title.getText().toString() + "." + extension1, "-i",dirDownloads+title.getText().toString() + "." + extensions.get(0),"-c", "copy", dirDownloads + title.getText().toString() + ".mp4"};
+                                        String[] command = {"-i",dirDownloads + title.getText().toString() + "." + extension1, "-i",dirDownloads+title.getText().toString() + "." + extensions.get(0),"-vcodec", "copy","-acodec","copy", dirDownloads + title.getText().toString() + ".mp4"};
                                         handleMedia(command, true);
                                     }
 
@@ -473,14 +466,13 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onStart() {
-
                         Log.e("onStart", "Started");
                         dStatus.setText("Merging audio video....");
                     }
 
                     @Override
                     public void onProgress(String message) {
-
+                        progressBar.setIndeterminate(true);
                         Log.e("onProgress", message);
                         dStatus.setText(message);
                     }
